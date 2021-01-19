@@ -18,8 +18,6 @@ public class EmployeePayrollController
         employeePayrollData = new EmployeePayrollData(1, new EmployeePayrollDTO("Pankaj", 3000));
         ResponseDTO responseDTO = new ResponseDTO("Get call successful", employeePayrollData);
         return new ResponseEntity<ResponseDTO>(responseDTO, HttpStatus.OK);
-
-        //return new ResponseEntity<String>("Get call success", HttpStatus.OK);
     }
 
     @GetMapping("/get/{empId}")
@@ -29,8 +27,6 @@ public class EmployeePayrollController
         employeePayrollData = new EmployeePayrollData(1, new EmployeePayrollDTO("Pankaj", 3000));
         ResponseDTO responseDTO = new ResponseDTO("Get call for id successful", employeePayrollData);
         return new ResponseEntity<>(responseDTO, HttpStatus.OK);
-
-        //return new ResponseEntity<String>("Get call success for id: " + empId, HttpStatus.OK);
     }
 
     @PostMapping("/create")
@@ -40,8 +36,6 @@ public class EmployeePayrollController
         employeePayrollData = new EmployeePayrollData(1, empPayrollDTO);
         ResponseDTO responseDTO = new ResponseDTO("Created employee payroll data successfully", employeePayrollData);
         return new ResponseEntity<>(responseDTO, HttpStatus.OK);
-
-        //return new ResponseEntity<String>("Create employee payroll data for: " + empPayrollDTO, HttpStatus.OK);
     }
 
     @PutMapping("/update")
@@ -51,8 +45,6 @@ public class EmployeePayrollController
         employeePayrollData = new EmployeePayrollData(1, empPayrollDTO);
         ResponseDTO responseDTO = new ResponseDTO("Updated employee payroll data successfully", employeePayrollData);
         return new ResponseEntity<>(responseDTO, HttpStatus.OK);
-
-        //return new ResponseEntity<>("Updated employee payroll data for: " + empPayrollDTO, HttpStatus.OK);
     }
 
     @DeleteMapping("/delete/{empId}")
@@ -60,7 +52,5 @@ public class EmployeePayrollController
     {
         ResponseDTO responseDTO = new ResponseDTO("Deleted successfully", "Deleted id: " + empId);
         return new ResponseEntity<>(responseDTO, HttpStatus.OK);
-
-        //return new ResponseEntity<String>("Delete call success for id: " + empId, HttpStatus.OK);
     }
 }
