@@ -1,6 +1,7 @@
 package com.bridgelabz.employeepayrollapp.services;
 
 import com.bridgelabz.employeepayrollapp.dtos.EmployeePayrollDTO;
+import com.bridgelabz.employeepayrollapp.exceptions.EmployeePayrollException;
 import com.bridgelabz.employeepayrollapp.models.EmployeePayrollData;
 import org.springframework.stereotype.Service;
 
@@ -19,7 +20,10 @@ public class EmployeePayrollService implements IEmployeePayrollService
 
     @Override
     public EmployeePayrollData getEmployeePayrollDataById(int empId) {
-        return employeePayrollDataList.get(empId-1);
+        return employeePayrollDataList.stream()
+                .filter(empData -> empData.getEmployeeId() == empId)
+                .findFirst()
+                .orElseThrow(() -> new EmployeePayrollException("Employee not found"));
     }
 
     @Override
